@@ -18,4 +18,18 @@ class Products_model extends CI_Model {
         $res = $query->row_array();
         return $res;
     }
+
+    public function set_products()
+    {
+        $this->load->helper('url');
+
+        //$slug = url_title($this->input->post('title'), 'dash', TRUE);
+
+        $data = array(
+            'description' => $this->input->post('description'),
+            'title' => $this->input->post('title')
+        );
+
+        return $this->db->insert('products', $data);
+    }
 }

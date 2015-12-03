@@ -30,4 +30,28 @@ class Products extends CI_Controller {
     {
         $data['products'] = $this->products_model->get_products($categoryId);
     }
+
+    public function create()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title'] = 'Create a products item';
+
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('description', 'Description', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('products/create');
+            $this->load->view('templates/footer');
+
+        }
+        else
+        {
+            $this->products_model->set_products();
+            $this->load->view('products/success');
+        }
+    }
 }
