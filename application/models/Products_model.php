@@ -10,11 +10,15 @@ class Products_model extends CI_Model {
     {
         if ($categoryId === 0)
         {
-            $query = $this->db->get('products');
+            //$query = $this->db->get('products');
+            $this->db->select('*');
+            $this->db->from('products');
+            $this->db->join('categories', 'categories.cat_id = products.product_category_id');
+            $query = $this->db->get();
             return $query->result_array();
         }
 
-        $query = $this->db->get_where('products', array('category_id' => $categoryId));
+        $query = $this->db->get_where('products', array('product_category_id' => $categoryId));
         $res = $query->row_array();
         return $res;
     }
@@ -26,8 +30,8 @@ class Products_model extends CI_Model {
         //$slug = url_title($this->input->post('title'), 'dash', TRUE);
 
         $data = array(
-            'description' => $this->input->post('description'),
-            'title' => $this->input->post('title')
+            'product_description' => $this->input->post('description'),
+            'product_title' => $this->input->post('title')
         );
 
         return $this->db->insert('products', $data);
