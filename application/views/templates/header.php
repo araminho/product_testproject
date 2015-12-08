@@ -8,5 +8,10 @@
 <body>
 <div class="container">
     <div class="row">
-        <h1><?php echo $title; ?></h1>
+        <div class="col-sm-10">
+            <h1><?php echo $title; ?></h1>
         </div>
+        <div class="col-sm-2">
+            <h3 class="text-right"><a href="/">Home</a></h3>
+        </div>
+    </div>

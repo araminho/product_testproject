@@ -11,7 +11,7 @@
             <tr>
                 <td><?php echo $category['cat_title']; ?></td>
                 <td>
-                    <a href="<?php echo base_url('categories/create/'.$category['cat_id']); ?>" class="btn btn-primary">Edit</a>
+                    <a href="<?php echo base_url('categories/create/'.$category['cat_id']); ?>" class="btn btn-primary btn-sm">Edit</a>
                 </td>
             </tr>
 
