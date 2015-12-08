@@ -1,12 +1,3 @@
-<h2><?php //echo $title; ?></h2>
-
-<div class="row">
-    <?php if(isset($message) && $message){ ?>
-        <div class="col-sm-12">
-            <p class="alert alert-success"><?php echo isset($message) ? $message : ""; ?></p>
-        </div>
-    <?php } ?>
-</div>
 <div class="row">
     <?php if (!empty($products)){ ?>
         <table class="table">

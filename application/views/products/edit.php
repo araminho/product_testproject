@@ -2,7 +2,7 @@
 <div class="row">
     <?php if (validation_errors()) { ?>
         <div class="col-sm-12">
-            <p class="alert alert-warning"><?php echo validation_errors(); ?></p>
+            <div class="alert alert-danger"><?php echo validation_errors(); ?></div>
         </div>
     <?php } ?>
 
@@ -35,5 +35,6 @@
             <?php } ?>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="<?php echo base_url(''); ?>" class="btn btn-default">Back</a>
+    <button type="submit" class="btn btn-primary ">Submit</button>
 </form>

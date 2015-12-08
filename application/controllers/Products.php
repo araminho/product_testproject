@@ -43,7 +43,7 @@ class Products extends CI_Controller {
         $data['categories'] = $this->categories_model->get_categories();
 
         $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('description', 'Description', 'required');
+        //$this->form_validation->set_rules('description', 'Description', 'required');
 
         if ($this->form_validation->run() === FALSE)
         {
