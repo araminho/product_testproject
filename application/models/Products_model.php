@@ -78,4 +78,11 @@ class Products_model extends CI_Model {
 
         return $this->db->update('products', $data);
     }
+
+    public function delete_product($productId)
+    {
+        $this->load->helper('url');
+        $this->db->where('product_id', $productId);
+        return $this->db->delete('products');
+    }
 }

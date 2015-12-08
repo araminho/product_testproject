@@ -13,5 +13,5 @@
         <input type="text" name="title" id="title" class="form-control" required/>
     </div>
     <a href="<?php echo base_url('categories'); ?>" class="btn btn-default">Back</a>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -53,4 +53,11 @@ class Categories_model extends CI_Model {
 
         return $this->db->update('categories', $data);
     }
+
+    public function delete_product($categoryId)
+    {
+        $this->load->helper('url');
+        $this->db->where('cat_id', $categoryId);
+        return $this->db->delete('categories');
+    }
 }

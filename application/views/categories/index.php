@@ -12,6 +12,7 @@
                     <td><?php echo $category['cat_title']; ?></td>
                     <td>
                         <a href="<?php echo base_url('categories/edit/'.$category['cat_id']); ?>" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="<?php echo base_url('categories/delete/'.$category['cat_id']); ?>" class="btn btn-danger btn-sm" onclick="if (!confirm('Are you sure? Products in this category will not be deleted.')) return false;">Delete</a>
                     </td>
                 </tr>
 
@@ -19,7 +20,9 @@
         </table>
     <?php } else { ?>
         <div class="row">
-            No categories
+            <div class="col-sm-12">
+                <div class="alert alert-warning">No categories</div>
+            </div>
         </div>
     <?php } ?>
 </div>

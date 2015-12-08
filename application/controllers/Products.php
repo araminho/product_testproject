@@ -97,4 +97,12 @@ class Products extends CI_Controller {
             $this->load->view('templates/footer');
         }
     }
+
+    public function delete($productId){
+        if (!$productId){
+            return false;
+        }
+        $this->products_model->delete_product($productId);
+        redirect(base_url());
+    }
 }

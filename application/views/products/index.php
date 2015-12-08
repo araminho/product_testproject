@@ -16,13 +16,16 @@
                     </td>
                     <td>
                         <a href="<?php echo base_url('products/edit/'.$product['product_id']); ?>" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="<?php echo base_url('products/delete/'.$product['product_id']); ?>" class="btn btn-danger btn-sm" onclick="if (!confirm('Are you sure?')) return false;">Delete</a>
                     </td>
                 </tr>
             <?php } ?>
         </table>
     <?php } else { ?>
         <div class="row">
-            No products
+            <div class="col-sm-12">
+                <div class="alert alert-warning">No products</div>
+            </div>
         </div>
     <?php } ?>
 </div>

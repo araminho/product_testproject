@@ -89,4 +89,11 @@ class Categories extends CI_Controller {
         }
     }
 
+    public function delete($categoryId){
+        if (!$categoryId){
+            return false;
+        }
+        $this->categories_model->delete_product($categoryId);
+        redirect(base_url('categories'));
+    }
 }
