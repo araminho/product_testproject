@@ -21,7 +21,7 @@
         <select name="category" id="category" class="form-control">
             <option value="0">Choose...</option>
             <?php foreach ($categories as $category) { ?>
-                <option value="<?php echo $category['cat_id'];?>">
+                <option value="<?php echo $category['cat_id'];?>" <?php echo $categoryId == $category['cat_id'] ? "selected" : "";?>>
                     <?php echo $category['cat_title'];?>
                 </option>
             <?php } ?>

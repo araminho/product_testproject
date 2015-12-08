@@ -5,6 +5,7 @@
             <tr>
                 <th>Category</th>
                 <th>Action</th>
+                <th>Add product in this category</th>
             </tr>
             </thead>
             <?php foreach ($categories as $category) { ?>
@@ -13,6 +14,9 @@
                     <td>
                         <a href="<?php echo base_url('categories/edit/'.$category['cat_id']); ?>" class="btn btn-primary btn-sm">Edit</a>
                         <a href="<?php echo base_url('categories/delete/'.$category['cat_id']); ?>" class="btn btn-danger btn-sm" onclick="if (!confirm('Are you sure? Products in this category will not be deleted.')) return false;">Delete</a>
+                    </td>
+                    <td>
+                        <a href="<?php echo base_url('products/create/'.$category['cat_id']); ?>" class="btn btn-success btn-sm">Add</a>
                     </td>
                 </tr>
 

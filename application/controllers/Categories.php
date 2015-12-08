@@ -20,16 +20,16 @@ class Categories extends CI_Controller {
         $data['categories'] = $this->categories_model->get_categories();
         $data['title'] = 'All categories';
 
-        //echo "<pre>"; print_r($data); exit;
         $this->load->view('templates/header', $data);
         $this->load->view('categories/index', $data);
         $this->load->view('templates/footer');
     }
 
-    /*public function view($categoryId = 0)
+    public function json($categoryId = 0)
     {
-        $data['categories'] = $this->categories_model->get_categories($categoryId);
-    }*/
+        $products = $this->products_model->get_products($categoryId);
+        echo json_encode($products);
+    }
 
 
     public function create()
@@ -66,8 +66,6 @@ class Categories extends CI_Controller {
 
         $data['title'] = 'Edit category';
         $data['category'] = $this->categories_model->get_category($categorytId);
-        //echo "<pre>"; print_r($this->products_model->get_product($productId)); exit;
-
 
         $this->form_validation->set_rules('title', 'Title', 'required');
 

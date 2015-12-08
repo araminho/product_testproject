@@ -22,23 +22,25 @@ class Products extends CI_Controller {
         $data['categories'] = $this->categories_model->get_categories();
         $data['title'] = 'All products';
 
-        //echo "<pre>"; print_r($data); exit;
         $this->load->view('templates/header', $data);
         $this->load->view('products/index', $data);
         $this->load->view('templates/footer');
     }
 
-    /*public function view($categoryId = 0)
+    public function json($categoryId = 0)
     {
-        $data['products'] = $this->products_model->get_products($categoryId);
-    }*/
+        $products = $this->products_model->get_products($categoryId);
+        echo json_encode($products);
+    }
 
-    public function create()
+
+    public function create($categoryId = 0)
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
         $data['title'] = 'Create a product';
+        $data['categoryId'] = $categoryId;
         //echo "<pre>"; print_r($this->categories_model->get_categories()); exit;
         $data['categories'] = $this->categories_model->get_categories();
 
@@ -66,14 +68,10 @@ class Products extends CI_Controller {
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
-        if ($productId){
-            //var_dump($productId); exit;
-        }
 
         $data['title'] = 'Edit product';
         $data['categories'] = $this->categories_model->get_categories();
         $data['product'] = $this->products_model->get_product($productId);
-        //echo "<pre>"; print_r($this->products_model->get_product($productId)); exit;
 
 
         $this->form_validation->set_rules('title', 'Title', 'required');

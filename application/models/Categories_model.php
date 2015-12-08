@@ -8,7 +8,6 @@ class Categories_model extends CI_Model {
 
     public function get_categories()
     {
-        //$query = $this->db->get('categories');
         $this->db->select('*');
         $this->db->from('categories');
         $query = $this->db->get();
@@ -22,7 +21,6 @@ class Categories_model extends CI_Model {
             return false;
         }
 
-        //$query = $this->db->get('products');
         $this->db->select('*');
         $this->db->from('categories');
         $this->db->where('cat_id', $categoryId);
